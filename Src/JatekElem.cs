@@ -2,7 +2,7 @@
 
 namespace OE.Prog2.Jatek.Jatekter
 {
-    class JatekElem
+    abstract class JatekElem
     {
         private int x;
 
@@ -19,7 +19,12 @@ namespace OE.Prog2.Jatek.Jatekter
             set { y = value; }
         }
 
-        private JatekTer ter;
+        /*public abstract double Meret
+        {
+            get { return; }
+        }*/
+
+        protected JatekTer ter;
 
         public JatekElem(int x, int y, ref JatekTer ter)
         {
@@ -29,5 +34,9 @@ namespace OE.Prog2.Jatek.Jatekter
 
             ter.Felvetel(this);
         }
+
+        /*public abstract void Utkozes()
+        {
+        }*/
     }
 }

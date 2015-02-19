@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Src\JatekElem.cs" />
     <Compile Include="Src\Jatekter.cs" />
+    <Compile Include="Src\MozgoJatekElem.cs" />
     <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\RogzitettJatekElem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\App.config" />

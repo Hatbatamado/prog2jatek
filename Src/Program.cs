@@ -6,7 +6,7 @@ namespace OE.Prog2.Jatek.Jatekter
     {
         static void Main(string[] args)
         {
-            JatekTer ter = new JatekTer(5, 10);
+            /*JatekTer ter = new JatekTer(5, 10);
             JatekElem elem1 = new JatekElem(1, 2, ref ter);
             JatekElem elem2 = new JatekElem(1, 5, ref ter);
             JatekElem elem3 = new JatekElem(6, 2, ref ter);
@@ -20,7 +20,7 @@ namespace OE.Prog2.Jatek.Jatekter
             for (int i = 0; i < tomb.Length; i++)
             {
                 Console.WriteLine(tomb[i].X + "-" + tomb[i].Y);
-            }
+            }*/
 
             Console.ReadKey();
         }
