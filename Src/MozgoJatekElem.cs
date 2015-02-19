@@ -12,7 +12,8 @@ namespace OE.Prog2.Jatek.Jatekter
             set { aktiv = value; }
         }
 
-        public MozgoJatekElem(int x, int y, ref JatekTer ter) : base(x,y,ref ter)
+        public MozgoJatekElem(int x, int y, ref JatekTer ter)
+            : base(x, y, ref ter)
         {
 
         }
