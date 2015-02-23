@@ -13,7 +13,7 @@ namespace OE.Prog2.Jatek.Megjelenites
     {
         //Mindig egy kétdimenziós egész tömböt várunk, ami tartalmazza a megjelenítendő terület szélességét és magasságát
         int[,] MegjelenitendoMeret { get; }
-        IKirajzolhato[] MegjelenítendőElemek();
+        IKirajzolhato[] MegjelenitendoElemek();
     }
 
     public static class SzalbiztosKonzol

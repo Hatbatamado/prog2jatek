@@ -18,7 +18,7 @@ namespace OE.Prog2.Jatek.Megjelenites
         public void Megjelenites()
         {
             //A forras objektum MegjelenitendoElemek metódusával kiolvassa a kirajzolandó elemek tömbjét
-            IKirajzolhato[] kirajzElemek = forras.MegjelenítendőElemek();
+            IKirajzolhato[] kirajzElemek = forras.MegjelenitendoElemek();
             //Lekérdezi azt is, hogy mekkora a megjelenítendő terület mérete
             int[,] meret = forras.MegjelenitendoMeret;
             int db;

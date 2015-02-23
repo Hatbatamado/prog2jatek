@@ -1,8 +1,9 @@
 ﻿using System;
+using OE.Prog2.Jatek.Megjelenites;
 
 namespace OE.Prog2.Jatek.Jatekter
 {
-    class JatekTer
+    class JatekTer : IMegjelenitheto
     {
         const int MAX_ELEMSZAM = 1000; //a tárolható elemek maximális száma (1000)
         private int elemN = 0; //azt mutatja, hogy éppen hány elemet tárolunk.
@@ -83,5 +84,32 @@ namespace OE.Prog2.Jatek.Jatekter
             return MegadottHelyenLevok(x, y, 0);
         }
 
+        public int[,] MegjelenitendoMeret
+        {
+            get
+            {
+                return new int[meretX, meretY];
+            }
+        }
+        public IKirajzolhato[] MegjelenitendoElemek()
+        {
+            int db = 0;
+            for (int i = 0; i < elemek.Length; i++)
+            {
+                if (elemek[i] is IKirajzolhato)
+                    db++;
+            }
+
+            IKirajzolhato[] vissza = new IKirajzolhato[db];
+
+            db = 0;
+            for (int i = 0; i < elemek.Length; i++)
+            {
+                if (elemek[i] is IKirajzolhato)
+                    vissza[db++] = elemek[i] as IKirajzolhato;
+            }
+
+            return vissza;
+        }
     }
 }
