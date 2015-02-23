@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Src\Fal.cs" />
     <Compile Include="Src\JatekElem.cs" />
+    <Compile Include="Src\Jatekos.cs" />
     <Compile Include="Src\Jatekter.cs" />
     <Compile Include="Src\MozgoJatekElem.cs" />
     <Compile Include="Src\Program.cs" />
