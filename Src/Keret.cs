@@ -1,6 +1,7 @@
 ﻿using System;
 using OE.Prog2.Jatek.Jatekter;
 using OE.Prog2.Jatek.Szabalyok;
+using OE.Prog2.Jatek.Megjelenites;
 
 namespace OE.Prog2.Jatek.Keret
 {
@@ -66,14 +67,42 @@ namespace OE.Prog2.Jatek.Keret
         public void Futtatas()
         {
             Jatekos jatekos = new Jatekos("Béla", 1, 1, ref ter);
+            KonzolosMegjelenito konzolmeg = new KonzolosMegjelenito(ter, 0, 0);
+            KonzolosMegjelenito konzolBela = new KonzolosMegjelenito(jatekos, 25, 0);
+            
             do
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key == ConsoleKey.LeftArrow) jatekos.Megy(-1, 0);
-                if (key.Key == ConsoleKey.RightArrow) jatekos.Megy(1, 0);
-                if (key.Key == ConsoleKey.UpArrow) jatekos.Megy(0, -1);
-                if (key.Key == ConsoleKey.DownArrow) jatekos.Megy(0, 1);
-                if (key.Key == ConsoleKey.Escape) jatekVege = true;
+                if (key.Key == ConsoleKey.LeftArrow)
+                {
+                    jatekos.Megy(-1, 0);
+                    konzolmeg.Megjelenites();
+                    konzolBela.Megjelenites();
+                }
+                if (key.Key == ConsoleKey.RightArrow)
+                {
+                    jatekos.Megy(1, 0);
+                    konzolmeg.Megjelenites();
+                    konzolBela.Megjelenites();
+                }
+                if (key.Key == ConsoleKey.UpArrow)
+                {
+                    jatekos.Megy(0, -1);
+                    konzolmeg.Megjelenites();
+                    konzolBela.Megjelenites();
+                }
+                if (key.Key == ConsoleKey.DownArrow)
+                {
+                    jatekos.Megy(0, 1);
+                    konzolmeg.Megjelenites();
+                    konzolBela.Megjelenites();
+                }
+                if (key.Key == ConsoleKey.Escape)
+                {
+                    jatekVege = true;
+                    konzolmeg.Megjelenites();
+                    konzolBela.Megjelenites();
+                }
             } while (!jatekVege);
         }
     }

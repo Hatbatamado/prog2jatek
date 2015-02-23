@@ -84,6 +84,7 @@ namespace OE.Prog2.Jatek.Jatekter
             return MegadottHelyenLevok(x, y, 0);
         }
 
+        //azt adja vissza, hogy mekkora területet kell majd megjeleníteni
         public int[,] MegjelenitendoMeret
         {
             get
@@ -91,8 +92,11 @@ namespace OE.Prog2.Jatek.Jatekter
                 return new int[meretX, meretY];
             }
         }
+        
+        //ez adja vissza azoknak az elemeknek a listáját, amelyeket ki kell rajzolni
         public IKirajzolhato[] MegjelenitendoElemek()
         {
+            //Számolja meg, hogy az elemek tömbben hány olyan objektum van, aki megvalósítja az IKirajzolhato interfészt
             int db = 0;
             for (int i = 0; i < elemek.Length; i++)
             {
@@ -100,8 +104,10 @@ namespace OE.Prog2.Jatek.Jatekter
                     db++;
             }
 
+            //Hozzon létre egy ekkora, IKirajzolhato nevű tömböt vissza néven
             IKirajzolhato[] vissza = new IKirajzolhato[db];
 
+            //Ebbe a tömbbe válogassa ki az interfészt megvalósító elemeket
             db = 0;
             for (int i = 0; i < elemek.Length; i++)
             {

@@ -28,8 +28,8 @@ namespace OE.Prog2.Jatek.Jatekter
              */
 
             //2. óra tesztelése:
-            /*OE.Prog2.Jatek.Keret.Keret keret = new Keret.Keret();
-            keret.Futtatas();*/
+            OE.Prog2.Jatek.Keret.Keret keret = new Keret.Keret();
+            keret.Futtatas();
         }
     }
 }

@@ -4,7 +4,7 @@ using OE.Prog2.Jatek.Megjelenites;
 
 namespace OE.Prog2.Jatek.Szabalyok
 {
-    class Jatekos : MozgoJatekElem, IKirajzolhato
+    class Jatekos : MozgoJatekElem, IKirajzolhato, IMegjelenitheto
     {
         private string nev; //tárolja a játékos nevét
 
@@ -77,6 +77,43 @@ namespace OE.Prog2.Jatek.Szabalyok
                 else
                     return '\u263B';
             }
+        }
+
+        //mivel a játékosnak van egy referenciája ahhoz a JatekTer-hez, amelyikben van, így adja vissza annak a méreteit
+        public int[,] MegjelenitendoMeret
+        {
+            get
+            {
+                return new int[ter.MeretX, ter.MeretY];
+            }
+        }
+
+        //a játékos a pálya 5 sugarú környezetét látja be, így az itt található elemeket fogja visszaadni
+        public IKirajzolhato[] MegjelenitendoElemek()
+        {
+            //Kérje le a játéktértől az ő 5 sugarú környezetében található elemek tömbjét
+            JatekElem[] belathtoElemek = ter.MegadottHelyenLevok(X, Y, 5);
+
+            //Ebben számolja meg, hogy hány olyan objektum van, ami megvalósítja az IKirajzolhato interfészt
+            int db = 0;
+            for (int i = 0; i < belathtoElemek.Length; i++)
+            {
+                if (belathtoElemek[i] is IKirajzolhato)
+                    db++;
+            }
+
+            //Hozzon létre egy ekkora, IKirajzolhato nevű tömböt vissza néven
+            IKirajzolhato[] vissza = new IKirajzolhato[db];
+
+            //Ebbe a tömbbe válogassa ki az interfészt megvalósító elemeket
+            db = 0;
+            for (int i = 0; i < belathtoElemek.Length; i++)
+            {
+                if (belathtoElemek[i] is IKirajzolhato)
+                    vissza[db++] = belathtoElemek[i] as IKirajzolhato;
+            }
+
+            return vissza;
         }
     }
 }
