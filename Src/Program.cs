@@ -6,6 +6,7 @@ namespace OE.Prog2.Jatek.Jatekter
     {
         static void Main(string[] args)
         {
+            //1. óra tesztelése:
             /*JatekTer ter = new JatekTer(5, 10);
             JatekElem elem1 = new JatekElem(1, 2, ref ter);
             JatekElem elem2 = new JatekElem(1, 5, ref ter);
@@ -20,9 +21,14 @@ namespace OE.Prog2.Jatek.Jatekter
             for (int i = 0; i < tomb.Length; i++)
             {
                 Console.WriteLine(tomb[i].X + "-" + tomb[i].Y);
-            }*/
+            }
+             
+             Console.ReadKey();
+             */
 
-            Console.ReadKey();
+            //2. óra tesztelése:
+            OE.Prog2.Jatek.Keret.Keret keret = new Keret.Keret();
+            keret.Futtatas();            
         }
     }
 }

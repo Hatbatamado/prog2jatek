@@ -63,6 +63,7 @@ namespace OE.Prog2.Jatek.Szabalyok
         public void Megy(int rx, int ry)
         {
             this.AtHelyez(this.X + rx, this.Y + ry);
+            Console.WriteLine(nev + ": " + X + "," + Y);
         }
     }
 }
