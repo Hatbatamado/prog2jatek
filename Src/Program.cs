@@ -6,6 +6,7 @@ namespace OE.Prog2.Jatek.Jatekter
     {
         static void Main(string[] args)
         {
+            //http://users.nik.uni-obuda.hu/prog2/
             //1. óra tesztelése:
             /*JatekTer ter = new JatekTer(5, 10);
             JatekElem elem1 = new JatekElem(1, 2, ref ter);

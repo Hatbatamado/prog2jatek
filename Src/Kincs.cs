@@ -9,7 +9,7 @@ namespace OE.Prog2.Jatek.Szabalyok
         public Kincs(int x, int y, ref JatekTer ter)
             : base(x, y, ref ter)
         {
-            Console.WriteLine(x + "," + y); //2. órai teszteléshez
+            //Console.WriteLine(x + "," + y); //2. órai teszteléshez
         }
 
         //Mindig adjon vissza 1-et
@@ -29,7 +29,7 @@ namespace OE.Prog2.Jatek.Szabalyok
                 Jatekos jatekos = (Jatekos)jatekelem;
                 //Ha igen, akkor hívjuk meg annak PontSzerez metódusát, paraméterként 50-et átadva
                 jatekos.PontotSzerez(50);
-                Console.WriteLine(jatekos.Nev); //2. órai teszteléshez
+                //Console.WriteLine(jatekos.Nev); //2. órai teszteléshez
 
                 //A kincs törölje önmagát a játéktérről
                 ter.Torol(this);
