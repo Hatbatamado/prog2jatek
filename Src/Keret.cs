@@ -36,11 +36,14 @@ namespace OE.Prog2.Jatek.Keret
             bool jatekos;
             do
             {
-                ujx = R.Next(PALYA_MERET_X + 1);
-                ujy = R.Next(PALYA_MERET_Y + 1);
-                segedelem = ter.MegadottHelyenLevok(ujx, ujy);
-                jatekos = ujx == 1 && ujy == 1;
-                if (segedelem.Length == 0 && !jatekos)
+                ujx = R.Next(PALYA_MERET_X - 1) + 1; //véletlen X koordináta
+                ujy = R.Next(PALYA_MERET_Y - 1) + 1; //véletlen Y koordináta
+                segedelem = ter.MegadottHelyenLevok(ujx, ujy); //megnézzük van-e elem új koordinátákon
+                jatekos = ujx == 1 && ujy == 1; //nem lehet az új koordináta (1,1)
+
+                //ha nincs az új koordinátán még kincs és
+                ///nem is (1,1)  koordináta akkor adjuk hozzá az új kincset
+                if (segedelem.Length == 0 && !jatekos) 
                 {
                     new Kincs(ujx, ujy, ref ter);
                     db++;
