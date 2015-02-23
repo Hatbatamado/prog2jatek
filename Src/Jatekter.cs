@@ -4,34 +4,37 @@ namespace OE.Prog2.Jatek.Jatekter
 {
     class JatekTer
     {
-        const int MAX_ELEMSZAM = 1000;
-        private int elemN = 0;
-        private JatekElem[] elemek = new JatekElem[MAX_ELEMSZAM];
-        private int meretX;
+        const int MAX_ELEMSZAM = 1000; //a tárolható elemek maximális száma (1000)
+        private int elemN = 0; //azt mutatja, hogy éppen hány elemet tárolunk.
+        private JatekElem[] elemek = new JatekElem[MAX_ELEMSZAM]; //MAX_ELEMSZAM méretű, JatekElem objektumokat tartalmazó tömb.
+        private int meretX; //a játéktér maximális mérete x irányban
 
         public int MeretX
         {
             get { return meretX; }
         }
 
-        private int meretY;
+        private int meretY; //a játéktér maximális mérete y irányban
 
         public int MeretY
         {
             get { return meretY; }
         }
 
-        public JatekTer(int meretX, int meretY)
+        //két paramétere legyen, amelyek beállítják a meretX és meretY mezők értékét
+        public JatekTer(int meretX, int meretY) 
         {
             this.meretX = meretX;
             this.meretY = meretY;
         }
 
+        //felveszi a paraméterként átadott JatekElem típusú objektumot az elemek tömbbe
         public void Felvetel(JatekElem jatekelem)
         {
             elemek[elemN++] = jatekelem;
         }
 
+        //törli a paraméterként átadott JatekElem objektumot az elemek tömbből
         public void Torol(JatekElem jatekelem)
         {
             int i = 0;
@@ -47,6 +50,10 @@ namespace OE.Prog2.Jatek.Jatekter
             elemN--;
         }
 
+        //három paramétere van: egy x és y koordináta, illetve egy távolság, a visszatérési értéke pedig egy JatekElem objektumokat tartalmazó tömb
+        //az x és y koordináták által meghatározott ponttól mért távolság távolságon belül hány darab JatekElem objektum található
+        //Létre kell hoznia egy ekkora JatekElem tömböt, majd ebbe ki kell válogatnia az előző feltételnek megfelelő elemeket.
+        //Ez lesz a metódus visszatérési értéke.
         public JatekElem[] MegadottHelyenLevok(int x, int y, int tavolsag)
         {
             int db = 0;
@@ -67,6 +74,8 @@ namespace OE.Prog2.Jatek.Jatekter
             return megadott;
         }
 
+        //csak x és y paramétere van
+        //Visszatérési értéke egy JatekElem tömb, ami azokat az elemeket tartalmazza, amelyek pont az x és y által megadott helyen vannak
         public JatekElem[] MegadottHelyenLevok(int x, int y)
         {
             int db = 0;
