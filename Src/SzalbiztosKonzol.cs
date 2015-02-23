@@ -1,0 +1,53 @@
+﻿using System;
+
+namespace OE.Prog2.Jatek.Megjelenites
+{
+    public interface IKirajzolhato
+    {
+        int X { get; } //A megjelenítendő alak x koordinátája
+        int Y { get; } //A megjelenítendő alak y koordinátája
+        char Alak { get; } //A jel, ami megjelenik majd
+    }
+
+    public interface IMegjelenitheto
+    {
+        //Mindig egy kétdimenziós egész tömböt várunk, ami tartalmazza a megjelenítendő terület szélességét és magasságát
+        int[,] MegjelenitendoMeret { get; }
+        IKirajzolhato[] MegjelenítendőElemek();
+    }
+
+    public static class SzalbiztosKonzol
+    {
+        static char[,] buffer;
+        static SzalbiztosKonzol()
+        {
+            buffer = new char[Console.WindowWidth, Console.WindowHeight];
+            Console.CursorVisible = false;
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+        }
+
+        // a szinkronizacio miatt kell
+        static object obj = new Object();
+
+        // egy karakter kiirasa
+        public static void KiirasXY(int x, int y, char betu)
+        {
+            lock (obj)
+            {
+                if (buffer[x, y] != betu)
+                {
+                    buffer[x, y] = betu;
+                    Console.SetCursorPosition(x, y);
+                    Console.Write(betu);
+                }
+            }
+        }
+
+        // egy sor kiirasa
+        public static void KiirasXY(int x, int y, string szoveg)
+        {
+            for (int i = 0; i < szoveg.Length; i++)
+                KiirasXY(x + i, y, szoveg[i]);
+        }
+    }
+}

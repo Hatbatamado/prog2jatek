@@ -47,10 +47,12 @@
     <Compile Include="Src\Jatekter.cs" />
     <Compile Include="Src\Keret.cs" />
     <Compile Include="Src\Kincs.cs" />
+    <Compile Include="Src\KonzolosMegjelenito.cs" />
     <Compile Include="Src\MozgoJatekElem.cs" />
     <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\RogzitettJatekElem.cs" />
+    <Compile Include="Src\SzalbiztosKonzol.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\App.config" />
