@@ -2,7 +2,7 @@
 
 namespace OE.Prog2.Jatek.Jatekter
 {
-    class MozgoJatekElem : JatekElem
+    abstract class MozgoJatekElem : JatekElem
     {
         private bool aktiv;
 

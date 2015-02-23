@@ -19,10 +19,10 @@ namespace OE.Prog2.Jatek.Jatekter
             set { y = value; }
         }
 
-        /*public abstract double Meret
+        public abstract double Meret
         {
-            get { return; }
-        }*/
+            get;
+        }
 
         protected JatekTer ter;
 
@@ -35,8 +35,6 @@ namespace OE.Prog2.Jatek.Jatekter
             ter.Felvetel(this);
         }
 
-        /*public abstract void Utkozes()
-        {
-        }*/
+        public abstract void Utkozes(JatekElem jatekelem);
     }
 }
