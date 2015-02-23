@@ -60,6 +60,8 @@ namespace OE.Prog2.Jatek.Jatekter
             JatekElem[] seged = new JatekElem[elemN];
             for (int i = 0; i < elemN; i++)
             {
+                if (elemek[i] == null)
+                    break;
                 if (Math.Sqrt(Math.Pow(elemek[i].X - x, 2) +
                     (Math.Pow(elemek[i].Y - y, 2))) <= tavolsag)
                 {
