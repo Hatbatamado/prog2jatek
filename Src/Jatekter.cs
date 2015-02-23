@@ -78,22 +78,7 @@ namespace OE.Prog2.Jatek.Jatekter
         //Visszatérési értéke egy JatekElem tömb, ami azokat az elemeket tartalmazza, amelyek pont az x és y által megadott helyen vannak
         public JatekElem[] MegadottHelyenLevok(int x, int y)
         {
-            int db = 0;
-            JatekElem[] seged = new JatekElem[elemN];
-            for (int i = 0; i < elemN; i++)
-            {
-                if (Math.Sqrt(Math.Pow(elemek[i].X - x, 2) +
-                    (Math.Pow(elemek[i].Y - y, 2))) == 0)
-                {
-                    seged[db++] = elemek[i];
-                }
-            }
-
-            JatekElem[] megadott = new JatekElem[db];
-            for (int i = 0; i < db; i++)
-                megadott[i] = seged[i];
-
-            return megadott;
+            return MegadottHelyenLevok(x, y, 0);
         }
 
     }

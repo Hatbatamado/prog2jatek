@@ -45,6 +45,7 @@
     <Compile Include="Src\JatekElem.cs" />
     <Compile Include="Src\Jatekos.cs" />
     <Compile Include="Src\Jatekter.cs" />
+    <Compile Include="Src\Kincs.cs" />
     <Compile Include="Src\MozgoJatekElem.cs" />
     <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
