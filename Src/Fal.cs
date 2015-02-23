@@ -1,9 +1,10 @@
 ﻿using System;
 using OE.Prog2.Jatek.Jatekter;
+using OE.Prog2.Jatek.Megjelenites;
 
 namespace OE.Prog2.Jatek.Szabalyok
 {
-    class Fal : RogzitettJatekElem
+    class Fal : RogzitettJatekElem, IKirajzolhato
     {
         //az őséhez hasonlóan x és y és játéktér paramétereket kap, ezeket továbbítja az ősnek
         public Fal(int x, int y, ref JatekTer ter)
@@ -22,6 +23,14 @@ namespace OE.Prog2.Jatek.Szabalyok
         //ne csináljon semmit, a fal passzív
         public override void Utkozes(JatekElem jatekelem)
         {
+        }
+
+        public char Alak //csak olvasható, visszatérési értéke '\u2593'
+        {
+            get
+            {
+                return '\u2593';
+            }
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using OE.Prog2.Jatek.Jatekter;
+using OE.Prog2.Jatek.Megjelenites;
 
 namespace OE.Prog2.Jatek.Szabalyok
 {
-    class Kincs : RogzitettJatekElem
+    class Kincs : RogzitettJatekElem, IKirajzolhato
     {
         //az őséhez hasonlóan x és y és játéktér paramétereket kap, ezeket továbbítja az ősnek
         public Kincs(int x, int y, ref JatekTer ter)
@@ -36,6 +37,14 @@ namespace OE.Prog2.Jatek.Szabalyok
 
                 //törlés után maradjon a játékos a kincs helyén
                 jatekos.Megy(this.X - jatekos.X, this.Y - jatekos.Y);
+            }
+        }
+
+        public char Alak //csak olvasható, visszatérési értéke '\u2666'
+        {
+            get
+            {
+                return '\u2666';
             }
         }
     }

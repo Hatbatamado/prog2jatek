@@ -1,9 +1,10 @@
 ﻿using System;
 using OE.Prog2.Jatek.Jatekter;
+using OE.Prog2.Jatek.Megjelenites;
 
 namespace OE.Prog2.Jatek.Szabalyok
 {
-    class Jatekos : MozgoJatekElem
+    class Jatekos : MozgoJatekElem, IKirajzolhato
     {
         private string nev; //tárolja a játékos nevét
 
@@ -64,6 +65,18 @@ namespace OE.Prog2.Jatek.Szabalyok
         {
             this.AtHelyez(this.X + rx, this.Y + ry);
             //Console.WriteLine(nev + ": " + X + "," + Y);
+        }
+
+        //csak olvasható, visszatérési értéke legyen attól függően, hogy ha még aktív, akkor '\u263A', különben '\u263B'
+        public char Alak
+        {
+            get
+            {
+                if (Aktiv)
+                    return '\u263A';
+                else
+                    return '\u263B';
+            }
         }
     }
 }
