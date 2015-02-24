@@ -65,8 +65,6 @@ namespace OE.Prog2.Jatek.Jatekter
                 this.X = ujx;
                 this.Y = ujy;
             }
-
-
         }
     }
 }

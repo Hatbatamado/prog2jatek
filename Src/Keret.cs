@@ -69,6 +69,8 @@ namespace OE.Prog2.Jatek.Keret
         public void Futtatas()
         {
             Jatekos jatekos = new Jatekos("Béla", 1, 1, ref ter);
+            GepiJatekos geplany = new GepiJatekos("Kati", 13, 6, ref ter);
+            GonoszGepiJatekos gepfiu = new GonoszGepiJatekos("Laci", 13, 8, ref ter);
             KonzolosMegjelenito konzolmeg = new KonzolosMegjelenito(ter, 0, 0);
             KonzolosMegjelenito konzolBela = new KonzolosMegjelenito(jatekos, 25, 0);
             konzolmeg.Megjelenites(); //feladat nem kéri, de kellene ide...
@@ -81,30 +83,38 @@ namespace OE.Prog2.Jatek.Keret
                     jatekos.Megy(-1, 0);
                     konzolmeg.Megjelenites();
                     konzolBela.Megjelenites();
+                    gepfiu.Mozgas();
+                    geplany.Mozgas();
                 }
                 if (key.Key == ConsoleKey.RightArrow)
                 {
                     jatekos.Megy(1, 0);
                     konzolmeg.Megjelenites();
                     konzolBela.Megjelenites();
+                    gepfiu.Mozgas();
+                    geplany.Mozgas();
                 }
                 if (key.Key == ConsoleKey.UpArrow)
                 {
                     jatekos.Megy(0, -1);
                     konzolmeg.Megjelenites();
                     konzolBela.Megjelenites();
+                    gepfiu.Mozgas();
+                    geplany.Mozgas();
                 }
                 if (key.Key == ConsoleKey.DownArrow)
                 {
                     jatekos.Megy(0, 1);
                     konzolmeg.Megjelenites();
                     konzolBela.Megjelenites();
+                    gepfiu.Mozgas();
+                    geplany.Mozgas();
                 }
                 if (key.Key == ConsoleKey.Escape)
                 {
                     jatekVege = true;
-                    konzolmeg.Megjelenites();
-                    konzolBela.Megjelenites();
+                    /*konzolmeg.Megjelenites(); felesleges ide, de feladat kéri..
+                    konzolBela.Megjelenites();*/
                 }
             } while (!jatekVege);
         }

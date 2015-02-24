@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Src\Fal.cs" />
+    <Compile Include="Src\GepiJatekos.cs" />
+    <Compile Include="Src\GonoszGepiJatekos.cs" />
     <Compile Include="Src\JatekElem.cs" />
     <Compile Include="Src\Jatekos.cs" />
     <Compile Include="Src\Jatekter.cs" />
@@ -49,6 +51,7 @@
     <Compile Include="Src\Kincs.cs" />
     <Compile Include="Src\KonzolosMegjelenito.cs" />
     <Compile Include="Src\MozgoJatekElem.cs" />
+    <Compile Include="Src\OrajelGenerator.cs" />
     <Compile Include="Src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\RogzitettJatekElem.cs" />

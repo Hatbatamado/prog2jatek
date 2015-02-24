@@ -68,7 +68,7 @@ namespace OE.Prog2.Jatek.Szabalyok
         }
 
         //csak olvasható, visszatérési értéke legyen attól függően, hogy ha még aktív, akkor '\u263A', különben '\u263B'
-        public char Alak
+        public virtual char Alak
         {
             get
             {
