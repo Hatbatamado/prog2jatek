@@ -6,6 +6,7 @@ namespace OE.Prog2.Jatek.Automatizmus
     interface IAutomatikusanMukodo
     {
         void Mukodik(); //ez a paraméter nélküli metódus automatikusan meg fog hívódni bizonyos időközönként
+
         //csak olvasható egész (tizedmásodperc). Az interfészt megjelenítő objektum Mukodik metódusa ilyen időközönként fog meghívódni
         int MukodesIntervallum { get; }
     }

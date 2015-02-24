@@ -2,6 +2,7 @@
 using OE.Prog2.Jatek.Jatekter;
 using OE.Prog2.Jatek.Szabalyok;
 using OE.Prog2.Jatek.Megjelenites;
+using OE.Prog2.Jatek.Automatizmus;
 
 namespace OE.Prog2.Jatek.Keret
 {
@@ -14,6 +15,7 @@ namespace OE.Prog2.Jatek.Keret
         private Random R = new Random(); //véletlen szám kincsekhez
         private JatekElem[] segedelem; //segéd tömb, különböző véletlen kincs pozíciókhoz
         private bool jatekVege = false; //csak akkor lesz igaz, ha vége a játéknak
+        private OrajelGenerator generator;
 
         private void PalyaGeneralas()
         {
@@ -58,6 +60,7 @@ namespace OE.Prog2.Jatek.Keret
         //hozza létre a PalyaTer objektumot a maximális mérettel, majd hívja meg a PalyaGeneralas metódust
         public Keret()
         {
+            generator = new OrajelGenerator();
             ter = new JatekTer(PALYA_MERET_X, PALYA_MERET_Y);
             PalyaGeneralas();
         }
@@ -71,51 +74,20 @@ namespace OE.Prog2.Jatek.Keret
             Jatekos jatekos = new Jatekos("Béla", 1, 1, ref ter);
             GepiJatekos geplany = new GepiJatekos("Kati", 13, 6, ref ter);
             GonoszGepiJatekos gepfiu = new GonoszGepiJatekos("Laci", 13, 8, ref ter);
+            generator.Felvetel(geplany);
+            generator.Felvetel(gepfiu);
             KonzolosMegjelenito konzolmeg = new KonzolosMegjelenito(ter, 0, 0);
             KonzolosMegjelenito konzolBela = new KonzolosMegjelenito(jatekos, 25, 0);
-            konzolmeg.Megjelenites(); //feladat nem kéri, de kellene ide...
-            konzolBela.Megjelenites(); //feladat nem kéri, de kellene ide...
+            generator.Felvetel(konzolmeg);
+            generator.Felvetel(konzolBela);
             do
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);
-                if (key.Key == ConsoleKey.LeftArrow)
-                {
-                    jatekos.Megy(-1, 0);
-                    konzolmeg.Megjelenites();
-                    konzolBela.Megjelenites();
-                    gepfiu.Mozgas();
-                    geplany.Mozgas();
-                }
-                if (key.Key == ConsoleKey.RightArrow)
-                {
-                    jatekos.Megy(1, 0);
-                    konzolmeg.Megjelenites();
-                    konzolBela.Megjelenites();
-                    gepfiu.Mozgas();
-                    geplany.Mozgas();
-                }
-                if (key.Key == ConsoleKey.UpArrow)
-                {
-                    jatekos.Megy(0, -1);
-                    konzolmeg.Megjelenites();
-                    konzolBela.Megjelenites();
-                    gepfiu.Mozgas();
-                    geplany.Mozgas();
-                }
-                if (key.Key == ConsoleKey.DownArrow)
-                {
-                    jatekos.Megy(0, 1);
-                    konzolmeg.Megjelenites();
-                    konzolBela.Megjelenites();
-                    gepfiu.Mozgas();
-                    geplany.Mozgas();
-                }
-                if (key.Key == ConsoleKey.Escape)
-                {
-                    jatekVege = true;
-                    /*konzolmeg.Megjelenites(); felesleges ide, de feladat kéri..
-                    konzolBela.Megjelenites();*/
-                }
+                if (key.Key == ConsoleKey.LeftArrow) jatekos.Megy(-1, 0);
+                if (key.Key == ConsoleKey.RightArrow) jatekos.Megy(1, 0);
+                if (key.Key == ConsoleKey.UpArrow) jatekos.Megy(0, -1);
+                if (key.Key == ConsoleKey.DownArrow) jatekos.Megy(0, 1);
+                if (key.Key == ConsoleKey.Escape) jatekVege = true;
             } while (!jatekVege);
         }
     }

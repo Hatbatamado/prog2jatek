@@ -1,10 +1,11 @@
 ﻿using System;
 using OE.Prog2.Jatek.Szabalyok;
 using OE.Prog2.Jatek.Jatekter;
+using OE.Prog2.Jatek.Automatizmus;
 
 namespace OE.Prog2.Jatek.Szabalyok
 {
-    class GepiJatekos : Jatekos
+    class GepiJatekos : Jatekos, IAutomatikusanMukodo
     {
         //Paraméterei ugyanazok mint az ős konstruktorának, csak hozzá továbbítsa a kapott adatokat
         public GepiJatekos(string nev, int x, int y, ref JatekTer ter)
@@ -41,6 +42,21 @@ namespace OE.Prog2.Jatek.Szabalyok
             get
             {
                 return '\u2640';
+            }
+        }
+
+        //hívja meg a már létező Mozgas metódust
+        public void Mukodik()
+        {
+            Mozgas();
+        }
+
+        //mindig adjon vissza 2-t (tehát 2 tizedmásodpercenként szeretnénk léptetni az ellenfelet)
+        public int MukodesIntervallum
+        {
+            get
+            {
+                return 2;
             }
         }
     }

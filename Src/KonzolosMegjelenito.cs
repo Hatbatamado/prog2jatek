@@ -1,8 +1,9 @@
 ﻿using System;
+using OE.Prog2.Jatek.Automatizmus;
 
 namespace OE.Prog2.Jatek.Megjelenites
 {
-    class KonzolosMegjelenito
+    class KonzolosMegjelenito : IAutomatikusanMukodo
     {
         private IMegjelenitheto forras;
         private int pozX; //ennyivel kell majd eltolni a kirajzolandó adatok x koordinátáját
@@ -41,6 +42,21 @@ namespace OE.Prog2.Jatek.Megjelenites
                         //akkor kiírunk oda egy szóközt a SzalbiztosKonzol segítségével
                         SzalbiztosKonzol.KiirasXY(i + pozX, j + pozY, ' ');
                 }
+            }
+        }
+
+        //hívja meg a már létező Megjelenites metódust
+        public void Mukodik()
+        {
+            Megjelenites();
+        }
+
+        //mindig adjon vissza 1-t (tehát minden órajel-ciklusban frissíteni kell a képernyőt)
+        public int MukodesIntervallum
+        {
+            get
+            {
+                return 1;
             }
         }
     }
