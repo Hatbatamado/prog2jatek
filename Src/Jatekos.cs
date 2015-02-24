@@ -47,6 +47,14 @@ namespace OE.Prog2.Jatek.Szabalyok
             if (eletero < 0)
                 eletero = 0;
 
+            //amennyiben változott a játékos életereje, és valaki feliratkozott a fenti eseménykezelőre,
+            //akkor küldjön az eseményről egy értesítést
+            if (JatekosValtozas != null)
+            {
+                Jatekos jatekos = this;
+                JatekosValtozas(ref jatekos, pontszam, eletero);
+            }
+
             //Ha a játékos életereje elérte a 0-t, akkor az Aktiv tulajdonságot állítsa hamisra
             if (eletero == 0)
                 Aktiv = false;
@@ -56,6 +64,11 @@ namespace OE.Prog2.Jatek.Szabalyok
         public void PontotSzerez(int pluszpont)
         {
             pontszam += pluszpont;
+            if (JatekosValtozas != null)
+            {
+                Jatekos jatekos = this;
+                JatekosValtozas(ref jatekos, pontszam, eletero);
+            }
         }
 
         //két paramétere két relatív koordináta (rx és ry, tipikusan -1, 0, 1 értékeket várunk ezekben).
@@ -115,5 +128,8 @@ namespace OE.Prog2.Jatek.Szabalyok
 
             return vissza;
         }
+
+        //legyen egy JatekosValtozasKezelo típusú eseménykezelő 
+        public event JatekosValtozasKezelo JatekosValtozas;
     }
 }

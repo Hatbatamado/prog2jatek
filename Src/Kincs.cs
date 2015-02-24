@@ -4,6 +4,14 @@ using OE.Prog2.Jatek.Megjelenites;
 
 namespace OE.Prog2.Jatek.Szabalyok
 {
+    //két paraméterrel rendelkezzen:
+    //A Kincs referenciája amit felvettek. A Jatekos referenciája, aki felvette.
+    delegate void KincsFelvetelKezelo(ref Kincs kincs, ref Jatekos jatekos);
+
+    //három paraméterrel rendelkezzen:
+    //Az eseményt küldő Jatekos referenciája. A játékos új pontszáma. A játékos új életereje.
+    delegate void JatekosValtozasKezelo(ref Jatekos jatekos, int ujpontszam, int ujeletero);
+
     class Kincs : RogzitettJatekElem, IKirajzolhato
     {
         //az őséhez hasonlóan x és y és játéktér paramétereket kap, ezeket továbbítja az ősnek
@@ -38,6 +46,14 @@ namespace OE.Prog2.Jatek.Szabalyok
                 //feladat nem kéri, de kell ide
                 //törlés után maradjon a játékos a kincs helyén
                 jatekos.Megy(this.X - jatekos.X, this.Y - jatekos.Y);
+                
+                //amennyiben egy játékos felvette a kincset, és valaki feliratkozott a fenti eseménykezelőre,
+                //akkor küldjön az eseményről egy értesítést
+                if (KincsFelvetel != null)
+                {
+                    Kincs kincs = this;
+                    KincsFelvetel(ref kincs, ref jatekos);
+                }
             }
         }
 
@@ -48,5 +64,8 @@ namespace OE.Prog2.Jatek.Szabalyok
                 return '\u2666';
             }
         }
+
+        //legyen egy KincsFelvetelKezelo típusú eseménykezelő
+        public event KincsFelvetelKezelo KincsFelvetel; 
     }
 }
