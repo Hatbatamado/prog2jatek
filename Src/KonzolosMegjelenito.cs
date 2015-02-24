@@ -24,9 +24,9 @@ namespace OE.Prog2.Jatek.Megjelenites
             int db;
 
             //Ezt követően két egymásba ágyazott ciklussal végigszaladunk a méret által megadott területen
-            for (int i = 0; i < meret.GetLength(0); i++)
+            for (int i = 0; i <= meret.GetLength(0); i++)
             {
-                for (int j = 0; j < meret.GetLength(1); j++)
+                for (int j = 0; j <= meret.GetLength(1); j++)
                 {
                     db = 0;
                     while (db < kirajzElemek.Length && !(i == kirajzElemek[db].X && j == kirajzElemek[db].Y))

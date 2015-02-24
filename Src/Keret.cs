@@ -29,6 +29,8 @@ namespace OE.Prog2.Jatek.Keret
                 new Fal(PALYA_MERET_X, i, ref ter);
             }
 
+            new Fal(PALYA_MERET_X, PALYA_MERET_Y, ref ter); //kimaradt kocka rajzoláshoz
+
             //Véletlenszerűen szórjon szét KINCSEK_SZAMA darab kincset a pályán belül, ügyelve arra,
             //hogy egy helyre nem fér el egynél több Kincs objektum
             //(az 1,1 pozíciót is hagyjuk szabadon, innen indul majd a játékos).
@@ -69,7 +71,8 @@ namespace OE.Prog2.Jatek.Keret
             Jatekos jatekos = new Jatekos("Béla", 1, 1, ref ter);
             KonzolosMegjelenito konzolmeg = new KonzolosMegjelenito(ter, 0, 0);
             KonzolosMegjelenito konzolBela = new KonzolosMegjelenito(jatekos, 25, 0);
-            
+            konzolmeg.Megjelenites(); //feladat nem kéri, de kellene ide...
+            konzolBela.Megjelenites(); //feladat nem kéri, de kellene ide...
             do
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);

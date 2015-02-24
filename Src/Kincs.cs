@@ -35,6 +35,7 @@ namespace OE.Prog2.Jatek.Szabalyok
                 //A kincs törölje önmagát a játéktérről
                 ter.Torol(this);
 
+                //feladat nem kéri, de kell ide
                 //törlés után maradjon a játékos a kincs helyén
                 jatekos.Megy(this.X - jatekos.X, this.Y - jatekos.Y);
             }
