@@ -51,6 +51,9 @@
     <Compile Include="Src\Kincs.cs" />
     <Compile Include="Src\KonzolosEredmenyAblak.cs" />
     <Compile Include="Src\KonzolosMegjelenito.cs" />
+    <Compile Include="Src\MozgasHalalMiattNemSikerultKivetel.cs" />
+    <Compile Include="Src\MozgasHelyHianyMiattNemSikerultKivetel.cs" />
+    <Compile Include="Src\MozgasNemSikerultKivetel.cs" />
     <Compile Include="Src\MozgoJatekElem.cs" />
     <Compile Include="Src\OrajelGenerator.cs" />
     <Compile Include="Src\Program.cs" />
