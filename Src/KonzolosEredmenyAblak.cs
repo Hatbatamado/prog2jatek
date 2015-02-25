@@ -22,11 +22,11 @@ namespace OE.Prog2.Jatek.Megjelenites
         {
             //A SzalbiztosKonzol segítségével írja ki a pozX és pozY által megadott helyre,
             //az aktuális sornak megfelelő sorba az alábbi adatokat „játékos neve:…, pontszáma:…, életereje:…”.
-            SzalbiztosKonzol.KiirasXY(pozX, pozY, "játékos neve: " + jatekos.Nev +
+            SzalbiztosKonzol.KiirasXY(pozX, pozY + sor, "játékos neve: " + jatekos.Nev +
                 ", pontszáma: " + ujpontszam + ", életereje: " + ujeletero);
 
             //növelje a sor értékét. Ha ez nagyobb mint a maxSorSzam, akkor állítsa 0-ra
-            if (++sor > maxSorSzam)
+            if (++sor >= maxSorSzam)
                 sor = 0;
         }
 

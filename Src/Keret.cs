@@ -16,6 +16,7 @@ namespace OE.Prog2.Jatek.Keret
         private JatekElem[] segedelem; //segéd tömb, különböző véletlen kincs pozíciókhoz
         private bool jatekVege = false; //csak akkor lesz igaz, ha vége a játéknak
         private OrajelGenerator generator;
+        private int megtalaltKincsek = 0; //ez fogja számolni, hogy hány kincset vettek már fel
 
         private void PalyaGeneralas()
         {
@@ -47,14 +48,16 @@ namespace OE.Prog2.Jatek.Keret
                 jatekos = ujx == 1 && ujy == 1; //nem lehet az új koordináta (1,1)
 
                 //ha nincs az új koordinátán még kincs és
-                ///nem is (1,1)  koordináta akkor adjuk hozzá az új kincset
+                //nem is (1,1)  koordináta akkor adjuk hozzá az új kincset
+                Kincs ujkincs;
                 if (segedelem.Length == 0 && !jatekos) 
                 {
-                    new Kincs(ujx, ujy, ref ter);
+                    ujkincs = new Kincs(ujx, ujy, ref ter);
+                    ujkincs.KincsFelvetel += KincsFelvetelTortent;
                     db++;
                 }
             }
-            while (db != (KINCSEK_SZAMA - 1));
+            while (db != (KINCSEK_SZAMA));
         }
 
         //hozza létre a PalyaTer objektumot a maximális mérettel, majd hívja meg a PalyaGeneralas metódust
@@ -71,13 +74,18 @@ namespace OE.Prog2.Jatek.Keret
         //akkor mozgassa Bélát ebbe az irányba, ha az Esc billentyű, akkor pedig lépjen ki.
         public void Futtatas()
         {
+            KonzolosEredmenyAblak konzolered = new KonzolosEredmenyAblak(0, 12, 5);
             Jatekos jatekos = new Jatekos("Béla", 1, 1, ref ter);
             GepiJatekos geplany = new GepiJatekos("Kati", 13, 6, ref ter);
             GonoszGepiJatekos gepfiu = new GonoszGepiJatekos("Laci", 13, 8, ref ter);
-            generator.Felvetel(geplany);
-            generator.Felvetel(gepfiu);
             KonzolosMegjelenito konzolmeg = new KonzolosMegjelenito(ter, 0, 0);
             KonzolosMegjelenito konzolBela = new KonzolosMegjelenito(jatekos, 25, 0);
+            
+            jatekos.JatekosValtozas += JatekosValtozasTortent;
+            //konzolered.JatekosFeliratkozas(gepfiu);  miért a gépet nézzük?
+            konzolered.JatekosFeliratkozas(jatekos); //a játékos eredményeit kellene kiírni....
+            generator.Felvetel(geplany);
+            generator.Felvetel(gepfiu);
             generator.Felvetel(konzolmeg);
             generator.Felvetel(konzolBela);
             do
@@ -89,6 +97,25 @@ namespace OE.Prog2.Jatek.Keret
                 if (key.Key == ConsoleKey.DownArrow) jatekos.Megy(0, 1);
                 if (key.Key == ConsoleKey.Escape) jatekVege = true;
             } while (!jatekVege);
+        }
+
+        //a KincsFelvetelKezelo delegáltnak megfelelő paraméterekkel rendelkezzen
+        private void KincsFelvetelTortent(ref Kincs kincs, ref Jatekos jatekos)
+        {
+            //Növelje a megtalaltKincsek változó értékét
+            megtalaltKincsek++;
+
+            //Ha ez elérte a KINCSEK_SZAMA konstans értéket, akkor a jatekVege változo értéke legyen igaz
+            if (megtalaltKincsek == KINCSEK_SZAMA)
+                jatekVege = true;
+        }
+
+        //a JatekosValtozasKezelo delegáltnak megfelelő paraméterekkel rendelkezzen
+        private void JatekosValtozasTortent(ref Jatekos jatekos, int ujpontszam, int ujeletero)
+        {
+            //Amennyiben a paraméterként kapott életerő 0, akkor állítsa a jatekVege változót igazra
+            if (ujeletero == 0)
+                jatekVege = true;
         }
     }
 }
