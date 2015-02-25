@@ -22,11 +22,11 @@ namespace OE.Prog2.Jatek.Szabalyok
         //Hívja meg az ős Utkozes metódusát. Ha még ezek után Aktiv a játékos,
         //és a paraméterként átadott ütköző objektum egy Jatekos objektum (vagy annak leszármazottja),
         //akkor hívja meg annak Serul metódusát paraméterként 10-et adva át
-        public void Utkozes()
+        public override void Utkozes(JatekElem jatekos)
         {
-            base.Utkozes(this);
-            if (Aktiv && (this is Jatekos))
-                this.Serul(10);
+            base.Utkozes(jatekos);
+            if (Aktiv && (jatekos is Jatekos))
+                (jatekos as Jatekos).Serul(10);
         }
     }
 }
