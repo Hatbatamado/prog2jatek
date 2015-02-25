@@ -1,10 +1,11 @@
 ﻿using System;
+using OE.Prog2.Jatek.Szabalyok;
 
 namespace OE.Prog2.Jatek.Jatekter
 {
     abstract class MozgoJatekElem : JatekElem
     {
-        private bool aktiv; //azt mutatja majd, hogy működik/él-e még az adott objektum
+        private bool aktiv = true; //azt mutatja majd, hogy működik/él-e még az adott objektum
 
         public bool Aktiv
         {
@@ -17,7 +18,6 @@ namespace OE.Prog2.Jatek.Jatekter
         public MozgoJatekElem(int x, int y, ref JatekTer ter)
             : base(x, y, ref ter)
         {
-
         }
 
         protected void AtHelyez(int ujx, int ujy)
@@ -43,7 +43,10 @@ namespace OE.Prog2.Jatek.Jatekter
             //a cél helyen lévő ütközik neki a mozgatandó objektumnak
             for (int i = 0; i < maselemek.Length; i++)
             {
-                this.Utkozes(maselemek[i]);
+                if (this is GonoszGepiJatekos)
+                    (this as GonoszGepiJatekos).Utkozes();
+                else
+                    this.Utkozes(maselemek[i]);
                 //Minden ütközés után ellenőrizze, hogy még Aktiv-e a mozgatandó objektum.
                 //Ha már nem az, akkor ne folytassa az ütközéseket.
                 if (!Aktiv)
