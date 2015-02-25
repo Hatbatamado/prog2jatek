@@ -43,10 +43,7 @@ namespace OE.Prog2.Jatek.Jatekter
             //a cél helyen lévő ütközik neki a mozgatandó objektumnak
             for (int i = 0; i < maselemek.Length; i++)
             {
-                /*if (this is GonoszGepiJatekos)
-                    (this as GonoszGepiJatekos).Utkozes();
-                else*/
-                    this.Utkozes(maselemek[i]);
+                this.Utkozes(maselemek[i]);
                 //Minden ütközés után ellenőrizze, hogy még Aktiv-e a mozgatandó objektum.
                 //Ha már nem az, akkor ne folytassa az ütközéseket.
                 if (!Aktiv)

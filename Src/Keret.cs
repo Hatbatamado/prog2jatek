@@ -76,8 +76,8 @@ namespace OE.Prog2.Jatek.Keret
         {
             KonzolosEredmenyAblak konzolered = new KonzolosEredmenyAblak(0, 12, 5);
             Jatekos jatekos = new Jatekos("Béla", 1, 1, ref ter);
-            GepiJatekos geplany = new GepiJatekos("Kati", 13, 5, ref ter);
-            GonoszGepiJatekos gepfiu = new GonoszGepiJatekos("Laci", 13, 8, ref ter);
+            GepiJatekos geplany = new GepiJatekos("Kati", 13, 1, ref ter);
+            GonoszGepiJatekos gepfiu = new GonoszGepiJatekos("Laci", 20, 10, ref ter);
             KonzolosMegjelenito konzolmeg = new KonzolosMegjelenito(ter, 0, 0);
             KonzolosMegjelenito konzolBela = new KonzolosMegjelenito(jatekos, 25, 0);
             
