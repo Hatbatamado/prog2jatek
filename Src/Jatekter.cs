@@ -55,7 +55,7 @@ namespace OE.Prog2.Jatek.Jatekter
         //az x és y koordináták által meghatározott ponttól mért távolság távolságon belül hány darab JatekElem objektum található
         //Létre kell hoznia egy ekkora JatekElem tömböt, majd ebbe ki kell válogatnia az előző feltételnek megfelelő elemeket.
         //Ez lesz a metódus visszatérési értéke.
-        public JatekElem[] MegadottHelyenLevok(int x, int y, int tavolsag)
+        public JatekElem[] MegadottHelyenLevok(int x, int y, double tavolsag)
         {
             int db = 0;
             JatekElem[] seged = new JatekElem[elemN];

@@ -34,10 +34,27 @@ namespace OE.Prog2.Jatek.Jatekter
                 //Minden ütközés után ellenőrizze, hogy még Aktiv-e a mozgatandó objektum.
                 //Ha már nem az, akkor ne folytassa az ütközéseket.
                 if (!Aktiv)
+                {
+                    new MozgasHalalMiattNemSikerultKivetel(this, this.X, this.Y);
                     break;
+                }
                 else
+                {
                     //Ha az ütközések után még Aktiv a mozgatandó objektum, akkor kérje le ismét a cél helyen található elemeket
                     maselemek = ter.MegadottHelyenLevok(ujx, ujy);
+
+                    //Ha az ütközéseket túlélte, de a cél területen már meglévő objektumok mellé már nem fért el az elem,
+                    //akkor dobjon egy MozgasHelyHianyMiattNemSikerult kivételt a megfelelő paraméterekkel
+                    JatekElem[] seged = ter.MegadottHelyenLevok(this.X, this.Y, Math.Sqrt(2));
+                    int db = 0;
+                    foreach (JatekElem e in seged)
+                    {
+                        if (!(e is Jatekos))
+                            db++;
+                    }
+                    if (db == 8)
+                        new MozgasHelyHianyMiattNemSikerultKivetel(this, this.X, this.Y, seged);
+                }
             }
 
             //a cél helyen lévő ütközik neki a mozgatandó objektumnak
@@ -47,10 +64,27 @@ namespace OE.Prog2.Jatek.Jatekter
                 //Minden ütközés után ellenőrizze, hogy még Aktiv-e a mozgatandó objektum.
                 //Ha már nem az, akkor ne folytassa az ütközéseket.
                 if (!Aktiv)
+                {
+                    new MozgasHalalMiattNemSikerultKivetel(this, ujx, ujy);
                     break;
+                }
                 else
+                {
                     //Ha az ütközések után még Aktiv a mozgatandó objektum, akkor kérje le ismét a cél helyen található elemeket
                     maselemek = ter.MegadottHelyenLevok(ujx, ujy);
+
+                    //Ha az ütközéseket túlélte, de a cél területen már meglévő objektumok mellé már nem fért el az elem,
+                    //akkor dobjon egy MozgasHelyHianyMiattNemSikerult kivételt a megfelelő paraméterekkel
+                    JatekElem[] seged = ter.MegadottHelyenLevok(this.X, this.Y, Math.Sqrt(2));
+                    int db = 0;
+                    foreach (JatekElem e in seged)
+                    {
+                        if (!(e is Jatekos))
+                            db++;
+                    }
+                    if (db == 8)
+                        new MozgasHelyHianyMiattNemSikerultKivetel(this, this.X, this.Y, seged);
+                }
             }
 
             //Számolja ki, hogy mennyi a cél helyen már meglévő elemek összesített mérete
