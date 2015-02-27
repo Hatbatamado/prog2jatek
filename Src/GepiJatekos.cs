@@ -7,16 +7,20 @@ namespace OE.Prog2.Jatek.Szabalyok
 {
     class GepiJatekos : Jatekos, IAutomatikusanMukodo
     {
+        private static Random R;
+
         //Paraméterei ugyanazok mint az ős konstruktorának, csak hozzá továbbítsa a kapott adatokat
         public GepiJatekos(string nev, int x, int y, ref JatekTer ter)
             : base(nev, x, y, ref ter)
-        { }
+        {
+            //feladat nem így kéri, de így nem ugyanazt a random értéket használja a 2 osztály
+            R = new Random(); 
+        }
 
         //Generáljunk egy véletlen számot 0 és 3 között. Majd ennek értékétől függően
         //az objektum próbáljon meg elmozdulni fel-jobbra-le-balra irányok közül valamerre
         public void Mozgas()
         {
-            Random R = new Random();
             int veletlen = R.Next(4);
             
             switch (veletlen)
