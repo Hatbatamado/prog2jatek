@@ -46,6 +46,7 @@ namespace OE.Prog2.Jatek.Jatekter
                     //Ha az ütközéseket túlélte, de a cél területen már meglévő objektumok mellé már nem fért el az elem,
                     //akkor dobjon egy MozgasHelyHianyMiattNemSikerult kivételt a megfelelő paraméterekkel
                     JatekElem[] seged = ter.MegadottHelyenLevok(this.X, this.Y, Math.Sqrt(2));
+                    //1 sugarú körben megnézzük van-e üres hely 
                     JatekElem jatekos = this;
                     int db = 0;
                     foreach (JatekElem e in seged)
@@ -77,6 +78,7 @@ namespace OE.Prog2.Jatek.Jatekter
                     //Ha az ütközéseket túlélte, de a cél területen már meglévő objektumok mellé már nem fért el az elem,
                     //akkor dobjon egy MozgasHelyHianyMiattNemSikerult kivételt a megfelelő paraméterekkel
                     JatekElem[] seged = ter.MegadottHelyenLevok(this.X, this.Y, Math.Sqrt(2));
+                    //1 sugarú körben megnézzük van-e üres hely
                     JatekElem jatekos = this;
                     int db = 0;
                     foreach (JatekElem e in seged)
