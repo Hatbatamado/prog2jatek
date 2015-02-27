@@ -85,11 +85,15 @@ namespace OE.Prog2.Jatek.Jatekter
         }
 
         //azt adja vissza, hogy mekkora területet kell majd megjeleníteni
-        public int[,] MegjelenitendoMeret
+        public int[] MegjelenitendoMeret
         {
             get
             {
-                return new int[meretX, meretY];
+                return new int[]
+                {
+                    meretX,
+                    meretY
+                };
             }
         }
         

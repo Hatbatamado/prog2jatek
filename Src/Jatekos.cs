@@ -93,11 +93,15 @@ namespace OE.Prog2.Jatek.Szabalyok
         }
 
         //mivel a játékosnak van egy referenciája ahhoz a JatekTer-hez, amelyikben van, így adja vissza annak a méreteit
-        public int[,] MegjelenitendoMeret
+        public int[] MegjelenitendoMeret
         {
             get
             {
-                return new int[ter.MeretX, ter.MeretY];
+                return new int[]
+                {
+                    ter.MeretX,
+                    ter.MeretY
+                };
             }
         }
 

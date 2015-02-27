@@ -12,7 +12,7 @@ namespace OE.Prog2.Jatek.Megjelenites
     public interface IMegjelenitheto
     {
         //Mindig egy kétdimenziós egész tömböt várunk, ami tartalmazza a megjelenítendő terület szélességét és magasságát
-        int[,] MegjelenitendoMeret { get; }
+        int[] MegjelenitendoMeret { get; }
         IKirajzolhato[] MegjelenitendoElemek();
     }
 
