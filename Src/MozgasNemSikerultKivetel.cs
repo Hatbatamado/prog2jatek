@@ -14,7 +14,7 @@ namespace OE.Prog2.Jatek.Szabalyok
             //set { jatekElem = value; } //ha minden igaz, akkor nem kell
         }
 
-        private int x;
+        private int x; //ez tárolja, hogy hova szerett volna lépni (x koordináta)
 
         public int X
         {
@@ -22,7 +22,7 @@ namespace OE.Prog2.Jatek.Szabalyok
             //set { x = value; } //ha minden igaz, akkor nem kell
         }
 
-        private int y;
+        private int y; //ez tárolja, hogy hova szerett volna lépni (y koordináta)
 
         public int Y
         {
