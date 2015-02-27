@@ -46,10 +46,11 @@ namespace OE.Prog2.Jatek.Jatekter
                     //Ha az ütközéseket túlélte, de a cél területen már meglévő objektumok mellé már nem fért el az elem,
                     //akkor dobjon egy MozgasHelyHianyMiattNemSikerult kivételt a megfelelő paraméterekkel
                     JatekElem[] seged = ter.MegadottHelyenLevok(this.X, this.Y, Math.Sqrt(2));
+                    JatekElem jatekos = this;
                     int db = 0;
                     foreach (JatekElem e in seged)
                     {
-                        if (!(e is Jatekos))
+                        if (e != jatekos)
                             db++;
                     }
                     if (db == 8)
@@ -76,10 +77,11 @@ namespace OE.Prog2.Jatek.Jatekter
                     //Ha az ütközéseket túlélte, de a cél területen már meglévő objektumok mellé már nem fért el az elem,
                     //akkor dobjon egy MozgasHelyHianyMiattNemSikerult kivételt a megfelelő paraméterekkel
                     JatekElem[] seged = ter.MegadottHelyenLevok(this.X, this.Y, Math.Sqrt(2));
+                    JatekElem jatekos = this;
                     int db = 0;
                     foreach (JatekElem e in seged)
                     {
-                        if (!(e is Jatekos))
+                        if (e != jatekos)
                             db++;
                     }
                     if (db == 8)
