@@ -8,7 +8,7 @@ namespace OE.Prog2.Jatek.Szabalyok
     {
         private JatekElem jatekElem; //ez tárolja, hogy ki nem tudott lépni
 
-        internal JatekElem JatekElem
+        public JatekElem JatekElem
         {
             get { return jatekElem; }
             //set { jatekElem = value; } //ha minden igaz, akkor nem kell

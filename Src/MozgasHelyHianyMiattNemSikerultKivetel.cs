@@ -6,7 +6,7 @@ namespace OE.Prog2.Jatek.Szabalyok
     class MozgasHelyHianyMiattNemSikerultKivetel : MozgasNemSikerultKivetel
     {
         JatekElem[] elemek; //azokat az elemeket fogja tároli, amelyek miatt nem sikerült a lépés
-        internal JatekElem[] Elemek
+        public JatekElem[] Elemek
         {
             get { return elemek; }
         }
