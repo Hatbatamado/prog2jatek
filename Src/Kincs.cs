@@ -30,7 +30,6 @@ namespace OE.Prog2.Jatek.Szabalyok
             }
         }
         
-        //TODO: ez a kód javítása
         public override void Utkozes(JatekElem jatekelem)
         {
             //Ellenőrizzük, hogy a nekiütköző (tehát a paraméterként kapott JatekElem) egy Jatekos típusú objektum-e
