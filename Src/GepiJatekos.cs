@@ -20,10 +20,30 @@ namespace OE.Prog2.Jatek.Szabalyok
         public void Mozgas()
         {
             int veletlen = R.Next(4);
-            
+            int[] veletlenszamok = new int[] { 0, 1, 2, 3 };
+            int[] seged;
+            int db = 0;
+            int i = 0;
+
+            while (veletlenszamok.Length > 0)
+            {
+                try
+                {
+                    HovaMegy(veletlen);
+                }
+                catch (MozgasHelyHianyMiattNemSikerultKivetel)
+                {
+                    //TODO tömb-ből törölje ahova nem tud menni  
+                }
+            }
+
             //TODO esemény-re reag.
            /* //Amennyiben a Megy metódus hívásakor egy MozgasHelyHianyMiattNemSikerult kivételt kapnánk,
-            //akkor automatikusan próbálkozzon a következő irányba lépni
+            //akkor automatikusan próbálkozzon a következő irányba lépni*/
+        }
+
+        private void HovaMegy(int veletlen)
+        {
             switch (veletlen)
             {
                 case 0: //fel
@@ -38,7 +58,7 @@ namespace OE.Prog2.Jatek.Szabalyok
                 case 3: //balra
                     Megy(-1, 0);
                     break;
-            }*/
+            }
         }
 
         //Visszatérési értéke legyen '\u2640'
