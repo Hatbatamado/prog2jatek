@@ -37,8 +37,7 @@ namespace OE.Prog2.Jatek.Jatekter
                 {
                     //Ha az ütközések hatására meghalt a mozgatni kívánt elem,
                     //akkor dobjunk egy MozgasHalalMiattNemSikerult kivételt a megfelelő paraméterekkel
-                    new MozgasHalalMiattNemSikerultKivetel(this, this.X, this.Y);
-                    break;
+                    throw new MozgasHalalMiattNemSikerultKivetel(this, ujx, ujy);
                 }
             }
             
@@ -49,7 +48,7 @@ namespace OE.Prog2.Jatek.Jatekter
                 //Ha az ütközéseket túlélte, de a cél területen már meglévő objektumok mellé már nem fért el az elem,
                 //akkor dobjon egy MozgasHelyHianyMiattNemSikerult kivételt a megfelelő paraméterekkel
                 if (maselemek.Length > 0)
-                    new MozgasHelyHianyMiattNemSikerultKivetel(this, ujx, ujy, maselemek);
+                    throw new MozgasHelyHianyMiattNemSikerultKivetel(this, ujx, ujy, maselemek);
             }
 
             //a cél helyen lévő ütközik neki a mozgatandó objektumnak
@@ -60,8 +59,9 @@ namespace OE.Prog2.Jatek.Jatekter
                 //Ha már nem az, akkor ne folytassa az ütközéseket.
                 if (!Aktiv)
                 {
-                    new MozgasHalalMiattNemSikerultKivetel(this, ujx, ujy);
-                    break;
+                    //Ha az ütközések hatására meghalt a mozgatni kívánt elem,
+                    //akkor dobjunk egy MozgasHalalMiattNemSikerult kivételt a megfelelő paraméterekkel
+                    throw new MozgasHalalMiattNemSikerultKivetel(this, ujx, ujy);
                 }
 
                 //Ha az ütközések után még Aktiv a mozgatandó objektum, akkor kérje le ismét a cél helyen található elemeket

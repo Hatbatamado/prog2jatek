@@ -20,52 +20,25 @@ namespace OE.Prog2.Jatek.Szabalyok
         public void Mozgas()
         {
             int veletlen = R.Next(4);
-
-            //Amennyiben a Megy metódus hívásakor egy MozgasHelyHianyMiattNemSikerult kivételt kapnánk,
+            
+            //TODO esemény-re reag.
+           /* //Amennyiben a Megy metódus hívásakor egy MozgasHelyHianyMiattNemSikerult kivételt kapnánk,
             //akkor automatikusan próbálkozzon a következő irányba lépni
             switch (veletlen)
             {
                 case 0: //fel
-                    try
-                    {
-                        Megy(0, -1);
-                    }
-                    catch (MozgasHelyHianyMiattNemSikerultKivetel)
-                    {
-                        goto case 1;
-                    }
+                    Megy(0, -1);
                     break;
                 case 1: //jobbra
-                    try
-                    {
-                        Megy(1, 0);
-                    }
-                    catch (MozgasHelyHianyMiattNemSikerultKivetel)
-                    {
-                        goto case 2;
-                    }
+                    Megy(1, 0);
                     break;
                 case 2: //lefele
-                    try
-                    {
-                        Megy(0, 1);
-                    }
-                    catch (MozgasHelyHianyMiattNemSikerultKivetel)
-                    {
-                        goto case 3;
-                    }
+                    Megy(0, 1);
                     break;
                 case 3: //balra
-                    try
-                    {
-                        Megy(-1, 0);
-                    }
-                    catch (MozgasHelyHianyMiattNemSikerultKivetel)
-                    {
-                        break;
-                    }
+                    Megy(-1, 0);
                     break;
-            }
+            }*/
         }
 
         //Visszatérési értéke legyen '\u2640'
