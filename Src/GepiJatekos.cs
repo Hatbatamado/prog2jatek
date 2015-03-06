@@ -34,6 +34,7 @@ namespace OE.Prog2.Jatek.Szabalyok
                 catch (MozgasHelyHianyMiattNemSikerultKivetel)
                 {
                     //TODO tömb-ből törölje ahova nem tud menni  
+						  //DEBUG: miért ugrál össze-vissza törlésre
                 }
             }
 
